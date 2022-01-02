@@ -1,7 +1,7 @@
 <div align="center">
   <br>
 
-  <a href="https://github.com/jeffreytse/jekyll-deploy-action">
+  <a href="https://github.com/jnooree/jekyll-deploy-action">
     <img alt="jekyll-theme-yat →~ jekyll" src="https://user-images.githubusercontent.com/9413601/107134556-211ea280-692e-11eb-9d13-afb253db5c67.png" width="600">
   </a>
 
@@ -20,39 +20,23 @@
 <p align="center">
 
   <a href="https://jeffreytse.github.io/jekyll-deploy-action">
-    <img src="https://github.com/jeffreytse/jekyll-deploy-action/workflows/Tests/badge.svg"
+    <img src="https://github.com/jnooree/jekyll-deploy-action/workflows/Tests/badge.svg"
       alt="Tests" />
   </a>
 
-  <a href="https://github.com/jeffreytse/jekyll-deploy-action/releases">
-    <img src="https://img.shields.io/github/v/release/jeffreytse/jekyll-deploy-action?color=brightgreen"
+  <a href="https://github.com/jnooree/jekyll-deploy-action/releases">
+    <img src="https://img.shields.io/github/v/release/jnooree/jekyll-deploy-action"
       alt="Release Version" />
   </a>
 
   <a href="https://opensource.org/licenses/MIT">
-  <img src="https://img.shields.io/badge/License-MIT-brightgreen.svg"
+  <img src="https://img.shields.io/github/license/jnooree/jekyll-deploy-action"
   alt="License: MIT" />
   </a>
-
-  <a href="https://liberapay.com/jeffreytse">
-  <img src="http://img.shields.io/liberapay/goal/jeffreytse.svg?logo=liberapay"
-  alt="Donate (Liberapay)" />
-  </a>
-
-  <a href="https://patreon.com/jeffreytse">
-  <img src="https://img.shields.io/badge/support-patreon-F96854.svg?style=flat-square"
-  alt="Donate (Patreon)" />
-  </a>
-
-  <a href="https://ko-fi.com/jeffreytse">
-  <img height="20" src="https://www.ko-fi.com/img/githubbutton_sm.svg"
-  alt="Donate (Ko-fi)" />
-  </a>
-
 </p>
 
 <div align="center">
-  <sub>Built with ❤︎ by
+  <sub>Built with ❤︎ by <a href="https://jnooree.github.io">jnooree</a>,
   <a href="https://jeffreytse.net">jeffreytse</a> and
   <a href="https://github.com/jeffreytse/jekyll-deploy-action/graphs/contributors">contributors </a>
 </div>
@@ -76,7 +60,7 @@ name: Build and Deploy to Github Pages
 on:
   push:
     branches:
-      - master  # Here source code branch is `master`, it could be other branch
+      - master # Here source code branch is `master`, it could be other branch
 
 jobs:
   build_and_deploy:
@@ -93,19 +77,19 @@ jobs:
             ${{ runner.os }}-gems-
 
       # Use GitHub Deploy Action to build and deploy to Github
-      - uses: jeffreytse/jekyll-deploy-action@v0.3.1
+      - uses: jnooree/jekyll-deploy-action@master
         with:
-          provider: 'github'
+          provider: "github"
           token: ${{ secrets.GITHUB_TOKEN }} # It's your Personal Access Token(PAT)
-          repository: ''             # Default is current repository
-          branch: 'gh-pages'         # Default is gh-pages for github provider
-          jekyll_src: './'           # Default is root directory
-          jekyll_cfg: '_config.yml'  # Default is _config.yml
-          jekyll_baseurl: ''         # Default is according to _config.yml
-          bundler_ver: '>=0'         # Default is latest bundler version
-          cname: ''                  # Default is to not use a cname
-          actor: ''                  # Default is the GITHUB_ACTOR
-          pre_build_commands: ''     # Installing additional dependencies (Arch Linux)
+          repository: "" # Default is current repository
+          branch: "gh-pages" # Default is gh-pages for github provider
+          jekyll_src: "./" # Default is root directory
+          jekyll_cfg: "_config.yml" # Default is _config.yml
+          jekyll_baseurl: "" # Default is according to _config.yml
+          bundler_ver: ">=0" # Default is latest bundler version
+          cname: "" # Default is to not use a cname
+          actor: "" # Default is the GITHUB_ACTOR
+          pre_build_commands: "" # Installing additional dependencies (Arch Linux)
 ```
 
 To schedule a workflow, you can use the POSIX cron syntax in your workflow file.
@@ -115,7 +99,7 @@ For example, this workflow is triggered every hour.
 ```yml
 on:
   schedule:
-    - cron:  '0 * * * *'
+    - cron: "0 * * * *"
 ```
 
 At the start of each workflow run, GitHub automatically creates a unique
@@ -133,7 +117,7 @@ a secret in your repository for this action to push to the `gh-pages` branch:
 - Create a token named `GH_TOKEN` (important) using the value copied.
 
 In the end, go to your repository’s Settings and scroll down to the GitHub Pages
- section, choose the `gh-pages` branch as your GitHub Pages source.
+section, choose the `gh-pages` branch as your GitHub Pages source.
 
 Additionally, if you don't have the `gh-pages` branch, you can create it as below:
 
@@ -146,19 +130,18 @@ git push origin gh-pages
 
 **💡 Tip:** The `gh-pages` branch is only for the site static files and the `master` branch is for source code.
 
-
 ## 🌱 Credits
 
 - [Jekyll](https://github.com/jekyll/jekyll) - A blog-aware static site generator in Ruby.
 - [actions/checkout](https://github.com/actions/checkout) - Action for checking out a repo.
 - [actions/cache](https://github.com/actions/cache) - Cache dependencies and build outputs in GitHub Actions.
 
-## ✍️  Contributing
+This is a fork of [jeffreytse/jekyll-deploy-action](https://github.com/jeffreytse/jekyll-deploy-action).
 
-Issues and Pull Requests are greatly appreciated. If you've never contributed to an open source project before I'm more than happy to walk you through how to create a pull request.
+## ✍️ Contributing
 
-You can start by [opening an issue](https://github.com/jeffreytse/jekyll-deploy-action/issues/new) describing the problem that you're looking to resolve and we'll go from there.
+Pull Requests are greatly appreciated. If you've never contributed to an open source project before I'm more than happy to walk you through how to create a pull request.
 
 ## 🌈 License
 
-This software is licensed under the [MIT license](https://opensource.org/licenses/mit-license.php) © JeffreyTse.
+This software is licensed under the [MIT license](https://opensource.org/licenses/mit-license.php).
